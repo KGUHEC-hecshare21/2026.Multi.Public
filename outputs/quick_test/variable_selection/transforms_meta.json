@@ -1,0 +1,5 @@
+{
+  "pca_n_components": 4,
+  "fa_n_factors": 3,
+  "has_factor_analyzer": false
+}

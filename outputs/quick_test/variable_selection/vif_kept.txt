@@ -1,0 +1,9 @@
+MAX_TA
+RN_lag1
+SUM_SR
+AVG_RHM
+SUM_SS
+RN_lag12
+AVG_PA
+AVG_WS
+RN_rolling3

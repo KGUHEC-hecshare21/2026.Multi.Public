@@ -1,0 +1,5 @@
+RN_lag12
+AVG_RHM
+SUM_SR
+RN_lag1
+MAX_TA

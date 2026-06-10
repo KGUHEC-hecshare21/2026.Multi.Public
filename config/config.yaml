@@ -1,0 +1,92 @@
+# Master configuration for the precipitation-forecasting benchmark.
+# Every script in src/ loads this file via src.config_utils.load_config().
+# Paths are resolved relative to the repository root.
+
+random_seed: 42
+
+paths:
+  input_dir: data/raw                       # raw KMA CSVs (not redistributed)
+  preprocessed_dir: outputs/preprocessed
+  variable_selection_dir: outputs/variable_selection
+  monthly_predictions_dir: outputs/monthly
+  tables_dir: outputs/tables
+  figures_dir: outputs/figures
+
+data:
+  # Original KMA file names; the same names are used by examples/quick_test.py
+  # after pointing input_dir at data/sample/.
+  daily_files:
+    - OBS_ASOS_DD_2001.2010.csv
+    - OBS_ASOS_DD_2011.2020.csv
+    - OBS_ASOS_DD_2021.2025.csv
+  monthly_file: OBS_ASOS_MNH_2001.2025.csv
+
+split:
+  train_start: "2001-01-01"
+  initial_train_end: "2020-12-31"
+  test_start: "2021-01-01"
+  test_end: "2025-12-31"
+  forecast_horizon: 1                       # one-step-ahead expanding window
+
+stations:
+  - { code: 105, name: Gangneung }
+  - { code: 108, name: Seoul }
+  - { code: 112, name: Incheon }
+  - { code: 133, name: Daejeon }
+  - { code: 143, name: Daegu }
+  - { code: 146, name: Jeonju }
+  - { code: 156, name: Gwangju }
+  - { code: 159, name: Busan }
+
+features:
+  candidate_variables:
+    - MAX_TA
+    - AVG_PA
+    - AVG_RHM
+    - AVG_WS
+    - SUM_SS
+    - SUM_SR
+    - RN_lag1
+    - RN_lag12
+    - RN_rolling3
+  always_keep: [RN_lag1, RN_lag12, RN_rolling3]
+  vif_threshold: 10.0
+  v2_top_k: 5
+  pca_explained_variance: 0.85
+  fa_n_factors: 3
+
+feature_settings: [V1_ALL, V2_FS, V3_PCA, V4_FA]
+
+target: SUM_RN
+target_daily: RN_DAY
+
+# Model hyperparameters
+sarimax:
+  grid:
+    p: [0, 1, 2]
+    d: [0, 1]
+    q: [0, 1, 2]
+    P: [0, 1]
+    D: [0, 1]
+    Q: [0, 1]
+  seasonal_period: 12
+
+lstm:
+  look_back: 12
+  hidden_size: 64
+  num_layers: 2
+  dropout: 0.2
+  epochs: 80
+  lr: 0.001
+
+timesfm:
+  model_id: google/timesfm-2.5-200m-pytorch
+
+chronos:
+  model_id: amazon/chronos-bolt-base
+
+moirai:
+  model_id: Salesforce/moirai-1.0-R-small
+
+ttm:
+  model_id: ibm-granite/granite-timeseries-ttm-r2

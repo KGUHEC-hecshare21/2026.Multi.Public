@@ -1,0 +1,3 @@
+Model,Setting,Station,Full_RMSE,Full_MAE,Full_PBIAS,Full_R2,Full_NSE,Full_KGE,AverageRank
+SARIMAX,V1_ALL,Seoul,1.0,1.0,1.0,1.0,1.0,1.0,1.0
+TimesFM,V1_ALL,Seoul,2.0,2.0,2.0,2.0,2.0,2.0,2.0
