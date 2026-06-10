@@ -1,13 +1,12 @@
-# 2026.Multi.Public
-# Regional Precipitation Forecasting with Foundation Models via a Multi-Agent System
+# Evaluating Multivariate Time-Series Foundation Models against Statistical and Deep Learning Models for Monthly Precipitation Forecasting in South Korea
 
 This repository contains the research code, configuration, and a synthetic
-sample dataset that accompany the manuscript *"Regional Precipitation
-Forecasting with Foundation Models: A Multi-Agent Benchmark over Eight KMA
-ASOS Stations (2001–2025)"*. Every figure and table reported in the paper
-can be reproduced from the source code under `src/` and the configuration
-in `config/config.yaml`, given access to the original Korea Meteorological
-Administration (KMA) observations.
+sample dataset that accompany the manuscript *"Evaluating Multivariate
+Time-Series Foundation Models against Statistical and Deep Learning Models
+for Monthly Precipitation Forecasting in South Korea"*. Every figure and
+table reported in the paper can be reproduced from the source code under
+`src/` and the configuration in `config/config.yaml`, given access to the
+original Korea Meteorological Administration (KMA) observations.
 
 A self-contained quick test (`examples/quick_test.py`) runs the full
 pipeline on synthetic data in roughly one minute on a laptop CPU.
@@ -145,8 +144,8 @@ unavailable, so the whole pipeline still executes end to end.
 ## 4. Installation
 
 ```bash
-git clone https://github.com/<your-org>/2026.01.Anti.Predict.Multi.git
-cd 2026.01.Anti.Predict.Multi
+git clone https://github.com/KGUHEC-hecshare21/2026.Multi.Public.git
+cd 2026.Multi.Public
 
 # 1. create and activate a virtual environment
 python -m venv .venv
@@ -351,10 +350,10 @@ If you use this code or its outputs in academic work, please cite the
 accompanying manuscript:
 
 ```bibtex
-@article{precip_mas_foundation_2026,
-  title   = {Regional Precipitation Forecasting with Foundation Models:
-             A Multi-Agent Benchmark over Eight KMA ASOS Stations
-             (2001--2025)},
+@article{precip_foundation_models_2026,
+  title   = {Evaluating Multivariate Time-Series Foundation Models against
+             Statistical and Deep Learning Models for Monthly Precipitation
+             Forecasting in South Korea},
   author  = {{[Author list withheld during peer review]}},
   journal = {[Journal name -- under review]},
   year    = {2026},
@@ -365,13 +364,13 @@ accompanying manuscript:
 ### Computer Code Availability statement
 
 > The source code used in this study is publicly available at
-> `https://github.com/<your-org>/2026.01.Anti.Predict.Multi`. The
-> repository contains individual Python files for data preprocessing,
-> covariate construction, feature selection and transformation,
-> expanding-window forecasting, model evaluation, and figure/table
-> generation. It also includes a README with installation, dependency,
-> and usage instructions, a quick-test example using synthetic data, and
-> an MIT open-source license.
+> https://github.com/KGUHEC-hecshare21/2026.Multi.Public. The repository
+> contains individual Python files for data preprocessing, covariate
+> construction, feature selection and transformation, expanding-window
+> forecasting, model evaluation, and figure/table generation. It also
+> includes a README with installation, dependency, and usage instructions,
+> a quick-test example using synthetic data, and an MIT open-source
+> license.
 
 * **Manuscript status:** under peer review (2026).
 * **Correspondence:** the corresponding author can be reached via the
